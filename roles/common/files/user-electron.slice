@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+[Unit]
+Description=Electron Limiter
+Before=slices.target
+[Slice]
+MemoryAccounting=true
+MemoryLimit={{ electronmem }}
+{% if electroncpu is defined %}
+# CPUQuota isn't available in systemd 208 (Fedora 20).
+CPUAccounting=true
+CPUQuota={{ electroncpu }}
+{% endif %}

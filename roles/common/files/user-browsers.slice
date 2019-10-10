@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+[Unit]
+Description=Browser Slice
+Before=slices.target
+[Slice]
+MemoryAccounting=true
+MemoryLimit={{ browsermem }}
+{% if browsercpu is defined %}
+# CPUQuota isn't available in systemd 208 (Fedora 20).
+CPUAccounting=true
+CPUQuota={{ browsercpu }}
+{% endif %}

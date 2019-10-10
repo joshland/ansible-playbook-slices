@@ -1,0 +1,25 @@
+---
+---
+- name: browser slice
+  template: 
+    src: user-browsers.slice
+    dest: /etc/systemd/system/user-browsers.slice 
+    owner: root
+    group: root
+    mode:  0644
+  notify: systemd daemon-reload
+
+- name: electron slice
+  template: 
+    src: user-electron.slice
+    dest: /etc/systemd/system/user-electron.slice 
+    owner: root
+    group: root
+    mode:  0644
+  notify: systemd daemon-reload
+
+#- name: Install libselinux-python
+#  yum: name=libselinux-python state=present
+#
+#- name: Reload ansible_facts
+#  setup:

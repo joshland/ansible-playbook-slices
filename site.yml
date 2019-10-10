@@ -1,0 +1,13 @@
+---
+- name: Setup Browsers in a Single Slice on the system
+  hosts: all
+  remote_user: root
+  # remote_user: user
+  #become: yes
+  #become_method: sudo
+
+  roles:
+    - common
+    #- gnomeshell
+    #- certbot
+    #- mattermost

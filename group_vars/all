@@ -1,0 +1,9 @@
+---
+# Override or python3
+ansible_python_interpreter: /usr/bin/python3
+
+# Variables for this exercise
+browsermem: 30%
+#browsercpu: 30%
+electronmem: 768M
+#electroncpu: 15%
