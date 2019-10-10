@@ -29,7 +29,7 @@ Make your adjustments here:
      electronmem: 768M
      #electroncpu: 15%
 
-## Examing Results:
+## Examining Results:
 
 *show cgroups*
 
