@@ -29,6 +29,21 @@ Make your adjustments here:
      electronmem: 768M
      #electroncpu: 15%
 
+## Examing Results:
+
+*show cgroups*
+
+     systemd-cgls
+     
+*examine usage*
+
+     systemd-cgtop
+     
+*general analysis*
+
+     systemd-analyze critical-chain user-browsers.slice
+
+
 ## License
 
 Ansible-Playbook-Slice by joshland is licensed under CC BY 2.0
