@@ -10,8 +10,8 @@ This is a fast playbook to demonstrate the idea of editting Gnome Startup (deskt
 ## Example
 
      git clone https://github.com/joshland/ansible-playbook-slices.git
-		 cd ansible-playbook-slices
-		 sudo  ansible-playbook site.yml -i hosts.ini
+     cd ansible-playbook-slices
+     sudo  ansible-playbook site.yml -i hosts.ini
 
 ## Tunables
 
