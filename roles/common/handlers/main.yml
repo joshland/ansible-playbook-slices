@@ -1,3 +1,15 @@
 ---
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
+
+- name: reload user-browsers
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: user-browsers.slice
+
+- name: reload user-electron
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: user-electron.slice

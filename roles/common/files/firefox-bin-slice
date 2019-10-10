@@ -10,4 +10,5 @@ os.setuid(user_info.pw_uid)
 env = os.environ.copy()
 env['HOME'] = user_info.pw_dir
 
-os.execle('/usr/bin/firefox', 'Firefox (tame)', env)
+args = tuple(['Firefox (tame)'] + sys.argv[1:] )
+os.execve('/usr/bin/firefox-bin', args, env)

@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import os
+import pwd
+
+
+user_info = pwd.getpwnam('sam')
+os.setuid(user_info.pw_uid)
+
+env = os.environ.copy()
+env['HOME'] = user_info.pw_dir
+
+args = tuple(sys.argv[1:])
+os.execve('/usr/bin/slack', args, env)

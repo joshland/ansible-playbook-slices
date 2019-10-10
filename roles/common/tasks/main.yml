@@ -1,5 +1,4 @@
 ---
----
 - name: browser slice
   template: 
     src: user-browsers.slice
@@ -7,7 +6,7 @@
     owner: root
     group: root
     mode:  0644
-  notify: systemd daemon-reload
+  notify: reload user-browsers
 
 - name: electron slice
   template: 
@@ -16,7 +15,32 @@
     owner: root
     group: root
     mode:  0644
-  notify: systemd daemon-reload
+  notify: reload user-electron
+
+- name: chrome slice
+  template: 
+    src: google-chrome-stable-slice
+    dest: /usr/bin/google-chrome-stable-slice
+    owner: root
+    group: root
+    mode:  0755
+
+- name: firefox slice
+  template: 
+    src: firefox-bin-slice
+    dest: /usr/bin/firefox-bin-slice
+    owner: root
+    group: root
+    mode:  0755
+
+- name: slack slice
+  template: 
+    src: slack-slice
+    dest: /usr/bin/slack-slice
+    owner: root
+    group: root
+    mode:  0755
+
 
 #- name: Install libselinux-python
 #  yum: name=libselinux-python state=present
