@@ -2,6 +2,7 @@
 
 import os
 import pwd
+import sys
 
 
 user_info = pwd.getpwnam('sam')

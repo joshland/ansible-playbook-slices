@@ -17,30 +17,23 @@
     mode:  0644
   notify: reload user-electron
 
-- name: chrome slice
-  template: 
-    src: google-chrome-stable-slice
-    dest: /usr/bin/google-chrome-stable-slice
-    owner: root
-    group: root
-    mode:  0755
+- name: Firefox Update
+  replace:
+    path: /usr/share/applications/firefox.desktop
+    regexp: Exec=firefox[ $]?
+    replace: "Exec=systemd-run --slice user-browsers.slice --user --scope /usr/bin/firefox "
 
-- name: firefox slice
-  template: 
-    src: firefox-bin-slice
-    dest: /usr/bin/firefox-bin-slice
-    owner: root
-    group: root
-    mode:  0755
+- name: Chrome Update
+  replace:
+    path: /usr/share/applications/google-chrome.desktop
+    regexp: Exec=/usr/bin/google-chrome-stable[ $]?
+    replace: "Exec=systemd-run --slice user-browsers.slice --user --scope /usr/bin/google-chrome-stable "
 
-- name: slack slice
-  template: 
-    src: slack-slice
-    dest: /usr/bin/slack-slice
-    owner: root
-    group: root
-    mode:  0755
-
+- name: Slack Update
+  replace:
+    path: /usr/share/applications/slack.desktop
+    regexp: Exec=/usr/bin/slack[ $]?
+    replace: "Exec=systemd-run --slice user-electron.slice --user --scope /usr/bin/slack "
 
 #- name: Install libselinux-python
 #  yum: name=libselinux-python state=present

@@ -1,0 +1,24 @@
+- name: chrome slice
+  template: 
+    src: google-chrome-stable-slice
+    dest: /usr/bin/google-chrome-stable-slice
+    owner: root
+    group: root
+    mode:  0755
+
+- name: firefox slice
+  template: 
+    src: firefox-bin-slice
+    dest: /usr/bin/firefox-bin-slice
+    owner: root
+    group: root
+    mode:  0755
+
+- name: slack slice
+  template: 
+    src: slack-slice
+    dest: /usr/bin/slack-slice
+    owner: root
+    group: root
+    mode:  0755
+
